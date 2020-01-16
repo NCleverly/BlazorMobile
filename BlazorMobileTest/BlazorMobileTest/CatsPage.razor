@@ -1,0 +1,11 @@
+﻿
+<ContentPage>
+    <ScrollView>
+        <StackLayout>
+            @foreach (var animal in BlazorMobileTest.Data.CatData.Cats)
+            {
+                <AnimalTemplate Animal="animal" />
+            }
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

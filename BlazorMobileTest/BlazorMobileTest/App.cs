@@ -7,9 +7,11 @@ namespace BlazorMobileTest
 {
     public class App : Application
     {
+        public IHost AppHost { get; }
+
         public App()
         {
-            var host = Host.CreateDefaultBuilder()
+            AppHost = Host.CreateDefaultBuilder()
                 .ConfigureServices((hostContext, services) =>
                 {
                     // Register app-specific services
@@ -17,7 +19,7 @@ namespace BlazorMobileTest
                 })
                 .Build();
 
-            host.AddComponent<HelloWorld>(parent: this);
+            AppHost.AddComponent<AppShell>(parent: this);
         }
 
         protected override void OnStart()
